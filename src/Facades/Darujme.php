@@ -4,7 +4,7 @@ namespace SunErgoS\DarujmeNaLaravel;
 
 use Illuminate\Support\Facades\Facade;
 
-class Debugbar extends Facade
+class Darujme extends Facade
 {
     protected static function getFacadeAccessor()
     {
