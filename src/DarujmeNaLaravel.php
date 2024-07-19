@@ -2,7 +2,7 @@
 
 namespace SunErgoS\DarujmeNaLaravel;
 
-class Darujme {
+class DarujmeNaLaravel {
 
     public function test(){
         echo "Funguje.";
