@@ -8,6 +8,6 @@ class Darujme extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \SunErgoS\DarujmeNaLaravel\Darujme::class;
+        return 'darujme';
     }
 }
