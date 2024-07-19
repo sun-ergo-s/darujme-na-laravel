@@ -9,9 +9,11 @@ class DarujmeServiceProvider extends ServiceProvider {
 
     public function register(){
 
+        /*
         $this->app->bind('darujme',function() {
             return new DarujmeNaLaravel;
         });
+        */
 
     }
     
