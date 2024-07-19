@@ -1,0 +1,21 @@
+{
+    "name": "sun-ergo-s/darujme-na-laravel",
+    "description": "Napojenie na službu Darujme.sk prostredníctvom API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SunErgoS\\DarujmeNaLaravel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michal",
+            "email": "mvesely26@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^12.0@dev"
+    }
+}
