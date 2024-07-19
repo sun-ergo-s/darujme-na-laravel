@@ -14,7 +14,20 @@
             "email": "mvesely26@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
+        "php": "^8.3",
+        "illuminate/support": "^11"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SunErgoS\\DarujmeNaLaravel\\DarujmeServiceProvider"
+            ],
+            "aliases": {
+                "Darujme": "SunErgoS\\DarujmeNaLaravel\\Facades\\Darujme"
+            }
+        }
     }
 }
