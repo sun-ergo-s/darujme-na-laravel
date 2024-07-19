@@ -1,6 +1,6 @@
 <?php
 
-namespace SunErgoS\DarujmeNaLaravel;
+namespace SunErgoS\DarujmeNaLaravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
