@@ -10,7 +10,7 @@ class DarujmeServiceProvider extends ServiceProvider {
     public function register(): void
     {
 
-        $this->mergeConfigFrom('./../config/darujme.php', 'darujme');
+        $this->mergeConfigFrom(config_path() . '/darujme.php', 'darujme');
 
         $this->app->singleton('darujme', function() {
             return new DarujmeNaLaravel();
