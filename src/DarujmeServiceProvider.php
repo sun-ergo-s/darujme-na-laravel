@@ -14,9 +14,11 @@ class DarujmeServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../config/darujme.php' => $this->app->configPath('darujme.php'),
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/darujme.php' => $this->app->configPath('darujme.php'),
+            ]);
+        }
     }
 
     public function register(): void
