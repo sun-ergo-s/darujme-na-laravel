@@ -16,6 +16,12 @@ Môžete použiť composer:
 composer require sun-ergo-s/darujme-na-laravel:dev-main
 ```
 
+Taktiež môžete vytvoriť konfiguračný súbor:
+
+```bash php
+php artisan vendor:publish --tag="darujme-config"
+```
+
 ## Použitie
 
 ```php
