@@ -7,10 +7,13 @@ use SunErgoS\DarujmeNaLaravel\DarujmeNaLaravel;
 
 class DarujmeServiceProvider extends ServiceProvider {
 
-    public function register(){
+    public function register(): void
+    {
 
-        $this->app->bind('darujme',function() {
-            return new DarujmeNaLaravel;
+        $this->mergeConfigFrom('./../config/darujme.php', 'darujme');
+
+        $this->app->singleton('darujme', function() {
+            return new DarujmeNaLaravel();
         });
 
     }
