@@ -22,7 +22,7 @@ Taktiež môžete vytvoriť konfiguračný súbor:
 php artisan vendor:publish --tag="darujme-config"
 ```
 
-V .env súbore je potrebné zadefinovať API kľúč, Secret a prihlasovacie údaje ako aj ID organizácie:
+V ```.env``` súbore je potrebné zadefinovať API kľúč, Secret a prihlasovacie údaje ako aj ID organizácie:
 
 ```
 DARUJME_API_KEY=api_kluc_poskytnuty_prevadzkovatelom_darujme_sk
