@@ -9,6 +9,8 @@ Jednoduchá komunikácia s portálom [Darujme.sk](https://darujme.sk/) prostredn
 [Detail užívateľa na základe ID](#detail-užívateľa-na-základe-id)<br/>
 [Zoznam platieb](#zoznam-platieb)
 
+... zatiaľ len na vlastné potreby, ale funkcionalitu je možné jednoducho rozšíriť.
+
 ## Inštalácia
 
 Môžete použiť composer:
@@ -17,7 +19,7 @@ Môžete použiť composer:
 composer require sun-ergo-s/darujme-na-laravel:dev-main
 ```
 
-Taktiež môžete vytvoriť konfiguračný súbor:
+Taktiež môžete vytvoriť konfiguračný súbor (zatiaľ ťahá len hodnoty z ```.env```, ale do budúcna sa môžu pridať variabilné nastavenia):
 
 ```bash php
 php artisan vendor:publish --tag="darujme-config"
