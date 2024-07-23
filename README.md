@@ -4,9 +4,9 @@ Jednoduchá komunikácia s portálom Darujme.sk prostredníctvom dostupného API
 
 ## Zatiaľ zabezpečuje:
 
-[Detail užívateľa na základe ID](#detail-uzivatela-na-zaklade-id)<br/>
-[Zoznam užívateľov](#zoznam-uzivatelov)<br/>
-[Zoznam kampaní](#zoznam-kampani)<br/>
+[Zoznam kampaní](#zoznam-kampaní)<br/>
+[Zoznam užívateľov](#zoznam-užívateľov)<br/>
+[Detail užívateľa na základe ID](#detail-užívateľa-na-základe-id)<br/>
 [Zoznam platieb](#zoznam-platieb)
 
 ## Inštalácia
