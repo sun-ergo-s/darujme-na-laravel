@@ -1,6 +1,6 @@
 # Darujme.sk API knižnica pre Laravel
 
-Jednoduchá komunikácia s portálom Darujme.sk prostredníctvom dostupného API rozhrania
+Jednoduchá komunikácia s portálom [Darujme.sk](https://darujme.sk/) prostredníctvom dostupného [API rozhrania](https://documenter.getpostman.com/view/10150431/T1LS9jWA?version=latest).
 
 ## Zatiaľ zabezpečuje:
 
