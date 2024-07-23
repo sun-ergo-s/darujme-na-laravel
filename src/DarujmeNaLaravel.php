@@ -8,18 +8,18 @@ use Illuminate\Http\Client\RequestException;
 class DarujmeNaLaravel {
 
     /**
+     * API url pre Darujme.sk
+     * 
+     * @var string
+     */
+    const API_URL = 'https://api.darujme.sk';
+
+    /**
      * Užívateľský token pre 'Authorization' hlavičku
      * 
      * 
      */
     private ?string $token = null;
-    
-    /**
-     * API url pre Darujme.sk
-     * 
-     * @var string
-     */
-    private string $api_url = 'https://api.darujme.sk';
 
     /**
      * HTTP klient
@@ -205,6 +205,23 @@ class DarujmeNaLaravel {
     }
     
     /**
+     * Vráti zoznam platieb
+     *
+     * @param  array $params
+     * @return array
+     */
+    public function listOfPayments(array $params = []): array
+    {
+
+        $this->path = "/v1/payments";
+
+        $this->http->replaceHeaders(['X-Signature' => self::createSecret()]);
+
+        return $this->http->get(self::prepareApiUrl(), $params)->json();
+
+    }
+    
+    /**
      * Vráti API url spolu s cestou
      *
      * @return string
@@ -212,7 +229,7 @@ class DarujmeNaLaravel {
     private function prepareApiUrl(): string
     {
 
-        return $this->api_url . $this->path . "/";
+        return self::API_URL . $this->path . "/";
         
     }
 

@@ -4,9 +4,10 @@ Jednoduchá komunikácia s portálom Darujme.sk prostredníctvom dostupného API
 
 ## Zatiaľ zabezpečuje:
 
-1. Detail užívateľa na základe ID
-2. Zoznam používateľov
-3. Zoznam kampaní
+[Detail užívateľa na základe ID](#detail-uzivatela-na-zaklade-id)<br/>
+[Zoznam užívateľov](#zoznam-uzivatelov)<br/>
+[Zoznam kampaní](#zoznam-kampani)<br/>
+[Zoznam platieb](#zoznam-platieb)
 
 ## Inštalácia
 
@@ -35,11 +36,37 @@ DARUJME_ORGANIZATION_ID=id_vasej_organizacie
 ## Použitie
 
 ```php
-
 use SunErgoS\DarujmeNaLaravel\Facades\Darujme;
 
 $campaigns = Darujme::listOfCampaigns();
-$users = Darujme::listOfUsers();
-$user_detail = Darujme::userDetail("id-uzivatela");
+```
 
+## Dostupné metódy:
+
+### Zoznam kampaní
+
+[API doc referencia](https://documenter.getpostman.com/view/10150431/T1LS9jWA?version=latest#c6746aa9-a41c-4f73-abed-3fb3dae23f72)
+```php
+$campaigns = Darujme::listOfCampaigns();
+``` 
+
+### Zoznam užívateľov
+
+[API doc referencia](https://documenter.getpostman.com/view/10150431/T1LS9jWA?version=latest#5e73414d-6534-445c-a026-a114e97f8b51)
+```php
+$users = Darujme::listOfUsers();
+``` 
+
+### Detail užívateľa na základe ID
+
+[API doc referencia](https://documenter.getpostman.com/view/10150431/T1LS9jWA?version=latest#41329e62-ba05-4430-8456-0719f066d3bc)
+```php
+$user_detail = Darujme::userDetail("id-uzivatela");
+``` 
+
+### Zoznam platieb
+
+[API doc referencia](https://documenter.getpostman.com/view/10150431/T1LS9jWA?version=latest#cf082c5e-c725-4321-8c88-0d889d1b582a)
+```php
+$list_of_payments = Darujme::listOfPayments();
 ``` 
