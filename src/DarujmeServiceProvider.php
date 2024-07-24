@@ -3,7 +3,7 @@
 namespace SunErgoS\DarujmeNaLaravel;
 
 use Illuminate\Support\ServiceProvider;
-use SunErgoS\DarujmeNaLaravel\DarujmeNaLaravel;
+use SunErgoS\DarujmeNaLaravel\Darujme;
 
 class DarujmeServiceProvider extends ServiceProvider {
 
@@ -29,7 +29,7 @@ class DarujmeServiceProvider extends ServiceProvider {
         );
 
         $this->app->singleton('darujme', function() {
-            return new DarujmeNaLaravel();
+            return new Darujme();
         });
 
     }

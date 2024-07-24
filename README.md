@@ -7,6 +7,7 @@ Jednoduchá komunikácia s portálom [Darujme.sk](https://darujme.sk/) prostredn
 [Zoznam kampaní](#zoznam-kampaní)<br/>
 [Zoznam užívateľov](#zoznam-užívateľov)<br/>
 [Detail užívateľa na základe ID](#detail-užívateľa-na-základe-id)<br/>
+[Priradenie role používateľa k organizácii](#priradenie-role-používateľa-k-organizácii)<br/>
 [Zoznam platieb](#zoznam-platieb)
 
 ... zatiaľ len na vlastné potreby, ale funkcionalitu je možné jednoducho rozšíriť.
@@ -63,7 +64,33 @@ $users = Darujme::listOfUsers();
 
 [API doc referencia](https://documenter.getpostman.com/view/10150431/T1LS9jWA?version=latest#41329e62-ba05-4430-8456-0719f066d3bc)
 ```php
-$user_detail = Darujme::userDetail("id-uzivatela");
+
+$path_vars = [
+    "id" => "..."
+];
+
+$user_detail = Darujme::userDetail($path_vars);
+``` 
+
+### Priradenie role používateľa k organizácii
+
+[API doc referencia](https://documenter.getpostman.com/view/10150431/T1LS9jWA?version=latest#11777ff3-a9ad-459d-b853-3b161f1b5f71)
+```php
+
+$path_vars = [
+    "userId" => "..."
+];
+
+$body = [
+    "organisations" => [
+        [
+            "organisation_id" => "...",
+            "role" => "manager"
+        ]
+    ]
+];
+
+$user_detail = Darujme::addUserToOrganization($path_vars, $body);
 ``` 
 
 ### Zoznam platieb

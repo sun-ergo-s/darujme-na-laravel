@@ -22,11 +22,25 @@ trait HttpClient {
     protected string $path;
 
     /**
+     * Metóda pre API požiadavku
+     * 
+     * @var string
+     */
+    protected string $method;
+
+    /**
      * Telo požiadavky 
      * 
      * @var array
      */
     protected array $body = [];
+
+    /**
+     * Parametre požiadavky 
+     * 
+     * @var array
+     */
+    protected array $params = [];
 
     /**
      * HTTP klient
@@ -41,6 +55,36 @@ trait HttpClient {
      * 
      */
     protected ?string $token = null;
+
+    protected function processHttpRequest()
+    {
+
+        $this->addSignatureHeader();
+
+        switch ($this->method) {
+            case 'GET':
+                return $this->http->get($this->prepareApiUrl(), $this->params)->json();
+                break;
+            case 'POST':
+                return $this->http->post($this->prepareApiUrl(), $this->body)->json();
+                break;
+            case 'DEL':
+                return $this->http->delete($this->prepareApiUrl(), $this->params)->json();
+                break;
+            case 'PUT':
+                return $this->http->put($this->prepareApiUrl(), $this->body)->json();
+                break;
+            default:
+                return [];
+                break;
+        }
+
+    }
+
+    protected function addSignatureHeader(): void
+    {   
+        $this->http->replaceHeaders(['X-Signature' => $this->createSecret()]);
+    }
 
     /**
      * Pridá hlavičky do HTTP klienta
@@ -108,12 +152,13 @@ trait HttpClient {
     {
 
         $this->path = '/v1/tokens';
+        $this->method = "POST";
         $this->body = [
             "username" => config('darujme.username'),
             "password" => config('darujme.password')
         ];
         $this->http->withHeaders(['X-Signature' => $this->createSecret()]);
-        $this->token = $this->http->post($this->prepareApiUrl(), $this->body)["response"]["token"];
+        $this->token = $this->processHttpRequest()["response"]["token"];
 
         // Uloží token do relácie
         session()->put('darujme_sk_user_token', $this->token);
@@ -134,7 +179,7 @@ trait HttpClient {
     protected function createSecret(): string
     {
 
-        $body = count($this->body) ? json_encode($this->body, JSON_FORCE_OBJECT) : "";
+        $body = count($this->body) ? json_encode($this->body) : "";
         $path = $this->path . "/";
         $payload = "{$body}:{$path}";
         $signature = hash_hmac('sha256', mb_convert_encoding($payload, 'UTF-8'), mb_convert_encoding(config('darujme.secret'), 'UTF-8'));
