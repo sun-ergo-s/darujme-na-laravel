@@ -76,6 +76,17 @@ class Darujme extends BaseDarujme {
         return $this->processHttpRequest();
 
     }
+
+    public function campaignDetail($path_vars = []): array
+    {
+
+        $this->path = strtr("/v1/campaigns/id/", $path_vars);
+
+        $this->addSignatureHeader();
+
+        return $this->http->get(self::prepareApiUrl())->json();
+
+    }
     
     /**
      * Vráti detail používateľa na základe :id
