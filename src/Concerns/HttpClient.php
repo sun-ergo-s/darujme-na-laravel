@@ -106,7 +106,6 @@ trait HttpClient {
 
         $this->http = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Host' => 'https://biblickaspolocnost.sk/',
             'Accept' => 'application/json',
             'X-ApiKey' => config('darujme.key'),
             'X-Organisation' => config('darujme.organization_id')
