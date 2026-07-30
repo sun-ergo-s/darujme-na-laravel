@@ -2,6 +2,8 @@
 
 namespace SunErgoS\DarujmeNaLaravel;
 
+use Illuminate\Http\Client\RequestException;
+
 class Darujme extends BaseDarujme {
 
     use Concerns\HttpClient;
@@ -142,13 +144,21 @@ class Darujme extends BaseDarujme {
         $this->addSignatureHeader();
 
         // return $this->http->post(self::prepareApiUrl(), $params);
-        $response = $this->http->post(self::prepareApiUrl(), $params);
+        try {
+    $response = $this->http->post(self::prepareApiUrl(), $params);
 
         dd([
             'status' => $response->status(),
             'headers' => $response->headers(),
             'body' => $response->body(),
         ]);
+    } catch (RequestException $e) {
+        dd([
+            'status' => $e->response->status(),
+            'headers' => $e->response->headers(),
+            'body' => $e->response->body(),
+        ]);
+    }
 
     }
 
