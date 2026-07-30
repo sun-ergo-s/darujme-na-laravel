@@ -124,14 +124,14 @@ class Darujme extends BaseDarujme {
         return $this->http->get(self::prepareApiUrl())->json();
     }
 
-    public function makeDonationForm(array $params = []): array
+    public function makeDonationForm(array $params = [])
     {
         $this->path = "/v1/donations/post";
 
         $this->addSignatureHeader();
 
         return $this->http->post(self::prepareApiUrl(), $params);
-        
+
     }
 
     /* 404  
