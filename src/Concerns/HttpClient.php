@@ -105,7 +105,7 @@ trait HttpClient {
     {
 
         $this->http = Http::withHeaders([
-            'Content-Type' => 'application/json',
+            // 'Content-Type' => 'application/json',
             'Accept' => 'application/json',
             'X-ApiKey' => config('darujme.key'),
             'X-Organisation' => config('darujme.organization_id')
