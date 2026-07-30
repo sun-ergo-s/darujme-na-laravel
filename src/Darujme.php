@@ -130,7 +130,13 @@ class Darujme extends BaseDarujme {
 
         $this->addSignatureHeader();
 
-        return $this->http->post(self::prepareApiUrl(), $params)->json();
+        $response = $this->http->post(self::prepareApiUrl(), $params);
+
+        dd([
+            'status' => $response->status(),
+            'headers' => $response->headers(),
+            'body' => $response->body(),
+        ]);
     }
 
     /* 404  
