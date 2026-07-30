@@ -117,7 +117,7 @@ class Darujme extends BaseDarujme {
 
     public function listOfPaymentMethods(array $params = []): array
     {
-        $this->path = "/v1/payments-methods";
+        $this->path = "/v1/payment-methods";
 
         $this->addSignatureHeader();
 
