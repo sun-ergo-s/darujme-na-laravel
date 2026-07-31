@@ -139,7 +139,7 @@ class Darujme extends BaseDarujme {
 
     public function makeDonationForm(array $params = [])
     {
-        $this->path = "/v1/donations";
+        $this->path = "/v1/donations/post";
 
         $this->addSignatureHeader();
 
