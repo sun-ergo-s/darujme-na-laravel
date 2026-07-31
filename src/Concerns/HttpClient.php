@@ -108,7 +108,7 @@ trait HttpClient {
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
             'X-ApiKey' => config('darujme.key'),
-            'X-Organisation' => config('darujme.organization_id')
+            // 'X-Organisation' => config('darujme.organization_id')
         ]);
 
     }
