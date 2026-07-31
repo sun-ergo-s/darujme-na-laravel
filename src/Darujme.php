@@ -143,6 +143,15 @@ class Darujme extends BaseDarujme {
 
         $this->addSignatureHeader();
 
+        $this->http
+    ->beforeSending(function ($request) {
+        logger()->info('URL: ' . $request->url());
+        logger()->info('Method: ' . $request->method());
+        logger()->info('Headers:', $request->headers());
+        logger()->info('Body: ' . (string) $request->body());
+    })
+    ->post(self::prepareApiUrl(), $params);
+
         return $this->http->dd()->post(self::prepareApiUrl(), $params);
 
         try {
