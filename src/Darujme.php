@@ -128,6 +128,17 @@ class Darujme extends BaseDarujme {
 
     }
 
+    public function paymentDetail($path_vars = [], $params = []): array
+    {
+
+        $this->path = strtr("/v1/payments/id", $path_vars);
+
+        $this->addSignatureHeader();
+
+        return $this->http->get(self::prepareApiUrl(), $params)->json();
+
+    }
+
     public function listOfPaymentMethods(array $params = []): array
     {
         $this->path = "/v1/payment-methods";
